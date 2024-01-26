@@ -1,0 +1,10 @@
+@use "../abstracts/" as *;
+
+// Prefixed
+.footer {
+  display: flex;
+  justify-content: center;
+  @include mq(small) {
+    justify-content: flex-end;
+  }
+}

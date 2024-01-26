@@ -1,0 +1,10 @@
+@use "../abstracts/" as *;
+
+.txt {
+  @include colors-generator($attribute: "color");
+}
+
+.bg {
+  @include colors-generator($attribute: "background-color");
+}
+

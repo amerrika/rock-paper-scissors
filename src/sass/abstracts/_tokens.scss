@@ -1,0 +1,40 @@
+@use "typography" as *;
+@use "colors" as *;
+@use "sizes" as *;
+
+// BODY
+$body-txt-clr: $neutral-800;
+$body-bg-clr: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+
+// LAYOUT
+$grid-gap: 5rem;
+
+// BUTTONS
+$button-ff: $ff-base;
+$button-fs: $fs-500;
+$button-fw: $fw-500;
+$button-ls: 0;
+$button-tt: uppercase;
+$button-padding: 0.5em 2em;
+$button-default-bg: transparent;
+$button-border: 2px solid;
+$button-br: 1rem;
+// Primary
+$button-primary-bg: $neutral-100;
+$button-primary-clr: $neutral-900;
+$button-primary-border-clr: $neutral-900;
+// Outline
+$button-outline-bg: transparent;
+$button-outline-clr: $neutral-100;
+$button-outline-border-clr: $neutral-100;
+// Inverted
+$button-inverted-bg: $neutral-100;
+$button-inverted-clr: $neutral-900;
+$button-inverted-border-clr: $neutral-100;
+// Muted
+$button-muted-padding: 0;
+$button-muted-bg: transparent;
+$button-muted-clr: $neutral-900;
+$button-muted-border-clr: transparent;
+
+
