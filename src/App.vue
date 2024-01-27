@@ -1,7 +1,8 @@
 <template>
   <Header :score="dynamic.totalScore" />
   <main class="container-narrow">
-    <Step1 v-if="dynamic.currentStep === 1" @choices="updateChoices" @nextStep="goToNextStep" />
+    <Step1 v-if="dynamic.currentStep === 1" :possible-choices="possibleChoices" @choices="updateChoices"
+      @nextStep="goToNextStep" />
     <Step2 v-if="dynamic.currentStep === 2" v-bind="dynamic.choices" @nextStep="goToNextStep" />
     <Step3 v-if="dynamic.currentStep === 3" v-bind="dynamic.choices" :winner="dynamic.winner"
       @playAgain="goToInitialStep" />
@@ -43,6 +44,8 @@ export default {
           randomChoice: undefined,
         }
       },
+      // static - data should not be changed
+      possibleChoices: ["paper", "scissors", "rock"]
     };
   },
   methods: {
@@ -77,10 +80,8 @@ export default {
     userChoice() {
       const { choices } = this.dynamic
 
-      const possibleChoices = ["paper", "scissors", "rock"]
-
-      const userIndex = possibleChoices.indexOf(choices.userChoice)
-      const randomIndex = possibleChoices.indexOf(choices.randomChoice)
+      const userIndex = this.possibleChoices.indexOf(choices.userChoice)
+      const randomIndex = this.possibleChoices.indexOf(choices.randomChoice)
 
       // if it's not a tie
       if (userIndex !== randomIndex) {
