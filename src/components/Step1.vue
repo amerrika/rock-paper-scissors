@@ -1,13 +1,13 @@
 <template>
     <div class="step-1" aria-label="pick rock, paper or scissors">
         <div class="button-pick paper">
-            <button aria-label="paper" @click="handleButtonClick"></button>
+            <button aria-label="paper" @click="handleButtonClick('paper')"></button>
         </div>
         <div class="button-pick scissors">
-            <button aria-label="scissors" @click="handleButtonClick"></button>
+            <button aria-label="scissors" @click="handleButtonClick('scissors')"></button>
         </div>
         <div class="button-pick rock">
-            <button aria-label="rock" @click="handleButtonClick"></button>
+            <button aria-label="rock" @click="handleButtonClick('rock')"></button>
         </div>
     </div>
 </template>
@@ -24,19 +24,16 @@ export default {
         }
     },
     methods: {
-        handleButtonClick(event) {
-            // update local variables
-            this.updateUserChoice(event)
+        handleButtonClick(choice) {
+            // update local userChoice & randomChoice
+            this.choices.userChoice = choice
             this.updateRandomChoice()
 
-            // send choices object to App
+            // send local choices object to App
             this.$emit("choices", this.choices)
-            
+
             // step1 is done, go to next step
             this.$emit("nextStep")
-        },
-        updateUserChoice(event) {
-            this.choices.userChoice = event.target.getAttribute("aria-label")
         },
         getRandomInt(max) {
             return Math.floor(Math.random() * max)
