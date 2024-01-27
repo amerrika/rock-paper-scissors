@@ -14,13 +14,13 @@
 
 <script>
 export default {
+    props: ["possibleChoices"],
     data() {
         return {
             choices: {
                 userChoice: undefined,
                 randomChoice: undefined,
             },
-            possibleChoices: ["paper", "scissors", "rock"],
         }
     },
     methods: {
