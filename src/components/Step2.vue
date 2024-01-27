@@ -40,6 +40,10 @@ export default {
                 this.counter = seconds
                 if (seconds < 1) {
                     clearInterval(interval)
+                    // go to next step
+                    setTimeout(() => {
+                        this.$emit("nextStep")
+                    }, 1000)
                 }
             }, 600);
         },
@@ -48,10 +52,6 @@ export default {
     created() {
         // Countdown for placeholder
         this.startCountdown(4)
-
-        setTimeout(() => {
-            this.$emit("nextStep")
-        }, 3700)
     },
 
     computed: {
